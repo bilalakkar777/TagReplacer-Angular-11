@@ -1,0 +1,39 @@
+.container {
+  width: 520px;
+  margin: 20px auto;
+}
+
+.boxs {
+  position: relative;
+  border: 1px solid #dddddd;
+}
+
+.full-width {
+  width: 100%;
+}
+
+thead {
+  td {
+    border-bottom: 1px solid #dddddd;
+  }
+}
+
+td {
+  padding: 12px 12px 0;
+}
+
+.main-title {
+  font-weight: 500;
+}
+
+.sub-title {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dev {
+  margin-top: 2px;
+  display: flex;
+}

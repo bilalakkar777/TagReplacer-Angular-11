@@ -1,0 +1,68 @@
+<div class="container">
+  <mat-card>
+    <h1 class="main-title">Tag Replacer</h1>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Input Text</mat-label>
+      <textarea [(ngModel)]="inputText" [mat-autosize]="true" [rows]="5" matInput></textarea>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <h2 class="sub-title">
+      <span>Replacements</span>
+      <div class="buttons">
+        <button (click)="AddEmptyReplacement()" color="primary" mat-raised-button style="margin-right: 40px;">
+          Add
+        </button>
+        <button (click)="RemoveAllSelected()" [disabled]="!replacements.length || !CheckIfOneOrManySelected()"
+                color="primary" mat-raised-button>
+          Remove
+        </button>
+      </div>
+    </h2>
+    <div *ngIf="replacements.length" class="boxs">
+      <table cellspacing="0" class="full-width">
+        <thead>
+        <tr>
+          <td>
+            <mat-checkbox (change)="SelectAll($event.checked)" [checked]="allSelected"
+                      [indeterminate]="IsIndeterminate()"></mat-checkbox>
+            Tag
+          </td>
+          <td>
+            Replacement
+          </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of replacements">
+          <td>
+            <mat-form-field class="full-width">
+              <span matPrefix style="margin-right: 5px;">
+                <mat-checkbox
+                (ngModelChange)="CheckIfAllSelected()" [(ngModel)]="item.selected">
+              </mat-checkbox></span>
+              <mat-label>Tag</mat-label>
+              <input [(ngModel)]="item.tag" matInput>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-label>Replacement</mat-label>
+              <input [(ngModel)]="item.replacement" matInput>
+            </mat-form-field>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <button (click)="Replace()" *ngIf="replacements.length" color="primary" mat-raised-button
+            style="margin: 10px auto;display: block;">Replace
+    </button>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Output Text</mat-label>
+      <textarea [(ngModel)]="outputText" [mat-autosize]="true" [rows]="5" matInput></textarea>
+    </mat-form-field>
+    <h5 class="dev">By Bilal Akkar v0.0.1</h5>
+  </mat-card>
+</div>
