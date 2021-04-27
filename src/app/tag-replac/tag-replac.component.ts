@@ -46,7 +46,7 @@ export class TagReplacComponent implements OnInit {
     this.allSelected = false;
   }
 
-  /** Check selected replacements to indeterminate select all [X] */
+  /** Check selected replacements to indeterminate select all [-] */
   public IsIndeterminate(): boolean {
     return this.replacements.filter(t => t.selected).length > 0 && !this.allSelected;
   }
